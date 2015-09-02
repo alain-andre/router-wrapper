@@ -20,9 +20,17 @@ en:
   router:
     crow:
       name: Crow flie
-    osrm5:
-      name: Open Source Routing Engine 5
-    otp:
-      name: OpenTripPlanner
-    here:
-      name: HERE
+    car:
+      name: Car
+    car_urban:
+      name: Urban zone / car
+    car_shortest:
+      name: Shortest
+    pedestrian:
+      name: Pedestrian
+    cycle:
+      name: Cycle
+    public_transport:
+      name: Public transport
+    truck:
+      name: Truck
