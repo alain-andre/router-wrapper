@@ -31,6 +31,7 @@ module RouterWrapper
 
   CROW = Wrappers::Crow.new(CACHE)
   OSRM_CAR_EUROPE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5000', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6000', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe')
+  OSRM_CAR_LANDES = Wrappers::Osrm4.new(CACHE, url_time: 'http://ns4004989.ip-198-27-65.net:5000', url_distance: 'http://ns4004989.ip-198-27-65.net:5004', url_isochrone: 'http://ns4004989.ip-198-27-65.net:6000', url_isodistance: 'http://ns4004989.ip-198-27-65.net:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Landes, France')
   OSRM_CAR_URBAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5003', url_distance: 'http://localhost:5004',url_isochrone: 'http://localhost:6003', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5001', url_isochrone: 'http://localhost:6001', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
@@ -122,6 +123,40 @@ module RouterWrapper
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
           crow: [CROW],
+          truck: [HERE_TRUCK],
+        }
+      }
+    }, {
+      api_keys: [
+        'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
+      ],
+      services: {
+        route_default: :car,
+        route: {
+          car: [OSRM_CAR_EUROPE],
+          car_landes: [OSRM_CAR_LANDES],
+          car_urban: [OSRM_CAR_URBAN_FRANCE],
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+          truck: [HERE_TRUCK],
+        },
+        matrix: {
+          car: [OSRM_CAR_EUROPE],
+          car_landes: [OSRM_CAR_LANDES],
+          car_urban: [OSRM_CAR_URBAN_FRANCE],
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+          truck: [HERE_TRUCK],
+        },
+        isoline: {
+          car: [OSRM_CAR_EUROPE],
+          car_landes: [OSRM_CAR_LANDES],
+          car_urban: [OSRM_CAR_URBAN_FRANCE],
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
           truck: [HERE_TRUCK],
         }
       }

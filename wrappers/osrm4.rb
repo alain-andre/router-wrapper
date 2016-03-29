@@ -54,8 +54,19 @@ module Wrappers
     end
 
     def route(locs, dimension, _departure, _arrival, language, with_geometry, options = {})
+      # OSRM-area Hack
+      area = []
+      if options[:speed_multiplier_area]
+        areas, speeds = options[:speed_multiplier_area].collect{ |area, v|
+          [area.flatten.join(','), v]
+        }.transpose
+        if areas && speeds
+          area = [[:area, areas.join(';')], [:speed_multiplier_area, speeds.join(';')]]
+        end
+      end
+
       # Workaround, cause restclient dosen't deals with array params
-      query_params = 'viaroute?' + URI::encode_www_form([[:alt, false], [:geometry, with_geometry]] + locs.collect{ |loc| [:loc, loc.join(',')] })
+      query_params = 'viaroute?' + URI::encode_www_form([[:alt, false], [:geometry, with_geometry], + locs.collect{ |loc| [:loc, loc.join(',')] } + area)
 
       key = [:osrm4, :route, Digest::MD5.hexdigest(Marshal.dump([@url_trace[dimension], dimension, query_params, language, options]))]
       json = @cache.read(key)
