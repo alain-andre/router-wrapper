@@ -5,6 +5,7 @@ gem 'rack'
 gem 'rakeup'
 gem 'puma'
 gem 'rack-cors'
+gem 'sentry-raven'
 
 gem 'grape'
 gem 'grape_logging'

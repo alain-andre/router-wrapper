@@ -32,6 +32,14 @@ use Rack::Cors do
   end
 end
 
+require 'raven'
+
+Raven.configure { |config|
+  config.dsn = 'http://204d1ce6fb1e4bdc80b8b5be1d22492e:3528270980a44899a7e59ba0c0ca3699@sentry.mapotempo.com/13'
+}
+
+use Raven::Rack
+
 use Rack::Locale
 
 run Api::Root
