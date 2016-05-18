@@ -97,6 +97,7 @@ module RouterWrapper
     }, {
       api_keys: [
         'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
+        'urios-test-1-97a6df314147dadea67b64c80f8d5494',
       ],
       services: {
         route_default: :car,
