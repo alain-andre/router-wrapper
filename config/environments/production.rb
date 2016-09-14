@@ -66,6 +66,7 @@ module RouterWrapper
         'demo',
         'apologic-1-9f9f5d62b4c32ce08f7f1bd144133e088f59c445',
         'apologic-beta-79728b4dbd59e080d36ba862d592d694',
+        'alyacom-test-e2f5c1a84d810f6a9a7cb6ba969300dab6324c16a1f496e389953f67',
       ],
       services: {
         route_default: :car,
