@@ -164,6 +164,22 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         }
       }
+    }, {
+      api_keys: [
+        'althea-test-e056ea36866a81665c51070b9bbc323164',
+      ],
+      services: {
+        route_default: :truck,
+        route: {
+          truck: [HERE_TRUCK],
+        },
+        matrix: {
+          truck: [HERE_TRUCK],
+        },
+        isoline: {
+          truck: [HERE_TRUCK],
+        }
+      }
     }]
   }
 
