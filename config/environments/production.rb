@@ -30,8 +30,8 @@ module RouterWrapper
   CACHE = CacheManager.new(ActiveSupport::Cache::RedisStore.new(host: ENV['REDIS_HOST'] || 'localhost', namespace: 'router', expires_in: 60*60*24*1, raise_errors: true))
 
   CROW = Wrappers::Crow.new(CACHE)
+  OSRM_CAR_EUROPE_U = Wrappers::Osrm5.new(CACHE, url_time: 'http://164.132.202.168:5005', url_distance: nil, url_isochrone: 'http://164.132.202.168:6005', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe')
   OSRM_CAR_EUROPE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5000', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6000', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe')
-  OSRM_CAR_LANDES = Wrappers::Osrm4.new(CACHE, url_time: 'http://ns4004989.ip-198-27-65.net:5000', url_distance: 'http://ns4004989.ip-198-27-65.net:5004', url_isochrone: 'http://ns4004989.ip-198-27-65.net:6000', url_isodistance: 'http://ns4004989.ip-198-27-65.net:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Landes, France')
   OSRM_CAR_URBAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5003', url_distance: 'http://localhost:5004',url_isochrone: 'http://localhost:6003', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5001', url_isochrone: 'http://localhost:6001', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
@@ -137,8 +137,8 @@ module RouterWrapper
       services: {
         route_default: :car,
         route: {
+          car_u: [OSRM_CAR_EUROPE_U],
           car: [OSRM_CAR_EUROPE],
-          car_landes: [OSRM_CAR_LANDES],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
@@ -146,8 +146,8 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         matrix: {
+          car_u: [OSRM_CAR_EUROPE_U],
           car: [OSRM_CAR_EUROPE],
-          car_landes: [OSRM_CAR_LANDES],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
@@ -155,8 +155,8 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         isoline: {
+          car_u: [OSRM_CAR_EUROPE_U],
           car: [OSRM_CAR_EUROPE],
-          car_landes: [OSRM_CAR_LANDES],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
