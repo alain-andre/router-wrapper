@@ -20,8 +20,12 @@ fr:
   router:
     crow:
       name: Vol d'oiseau
+    car2:
+      name: Voiture V2
     car:
       name: Voiture
+    car_interurban:
+      name: Zone interurbaine / voiture
     car_urban:
       name: Zone urbaine / voiture
     car_shortest:

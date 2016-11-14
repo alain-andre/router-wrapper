@@ -20,8 +20,12 @@ en:
   router:
     crow:
       name: Crow flie
+    car2:
+      name: Car V2
     car:
       name: Car
+    car_interurban:
+      name: Interurban zone / car
     car_urban:
       name: Urban zone / car
     car_shortest:
