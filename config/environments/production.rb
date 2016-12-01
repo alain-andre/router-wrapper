@@ -34,6 +34,7 @@ module RouterWrapper
   OSRM_CAR_INTERURBAN_EUROPE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5000', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6000', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe')
   OSRM_CAR_URBAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5003', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6003', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CAR_URBAN_QUEBEC = Wrappers::Osrm4.new(CACHE, url_time: 'http://alpha.mapotempo.com:5003', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Quebec')
+  OSRM_CAR_INTERURBAN_USA_NE = Wrappers::Osrm4.new(CACHE, url_time: 'http://alpha.mapotempo.com:5004', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Northeast')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5001', url_isochrone: 'http://localhost:6001', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
 
@@ -148,6 +149,7 @@ module RouterWrapper
           car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           car_urban_quebec: [OSRM_CAR_URBAN_QUEBEC],
+          car_interurban_usa_ne: [OSRM_CAR_INTERURBAN_USA_NE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -160,6 +162,7 @@ module RouterWrapper
           car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           car_urban_quebec: [OSRM_CAR_URBAN_QUEBEC],
+          car_interurban_usa_ne: [OSRM_CAR_INTERURBAN_USA_NE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
