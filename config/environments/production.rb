@@ -90,41 +90,9 @@ module RouterWrapper
       api_keys: [
         'demo',
         'alyacom-test-e2f5c1a84d810f6a9a7cb6ba969300dab6324c16a1f496e389953f67',
-      ],
-      services: {
-        route_default: :car,
-        route: {
-          car2: [OSRM_CAR_EUROPE],
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-        },
-        matrix: {
-          car2: [OSRM_CAR_EUROPE],
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-        },
-        isoline: {
-          car2: [OSRM_CAR_EUROPE],
-          car: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_urban: [OSRM_CAR_URBAN_FRANCE],
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-        }
-      }
-    }, {
-      api_keys: [
         'apologic-1-9f9f5d62b4c32ce08f7f1bd144133e088f59c445',
         'apologic-beta-79728b4dbd59e080d36ba862d592d694',
+        'admr-test-1-3ba76b0f79c1a8517a9d3d101dcbd837',
       ],
       services: {
         route_default: :car,
@@ -140,7 +108,7 @@ module RouterWrapper
         },
         matrix: {
           car2: [OSRM_CAR_EUROPE],
-          car: [OSRM_CAR_INTERURBAN_EUROPE],
+          car: OSRM_CAR_INTERURBAN,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -214,6 +182,7 @@ module RouterWrapper
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
           truck: [HERE_TRUCK],
         },
         matrix: {
@@ -224,6 +193,7 @@ module RouterWrapper
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
           truck: [HERE_TRUCK],
         },
         isoline: {
@@ -234,6 +204,7 @@ module RouterWrapper
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
           truck: [HERE_TRUCK],
         }
       }
