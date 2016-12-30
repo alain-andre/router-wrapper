@@ -39,17 +39,23 @@ module RouterWrapper
   OSRM_CAR_INTERURBAN_USA_NE = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5001', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Northeast', boundary: 'poly/us-east-coast.kml')
   OSRM_CAR_INTERURBAN_QUEBEC = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5002', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Quebec', boundary: 'poly/quebec.kml')
   OSRM_CAR_INTERURBAN_TEXAS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5003', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/texas.kml')
+  OSRM_CAR_INTERURBAN_COLORADO = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5006', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/colorado.kml')
+  OSRM_CAR_INTERURBAN_ILLINOIS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5007', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/illinois.kml')
   OSRM_CAR_INTERURBAN_MAGHREB = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5004', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Morooco, Algeria, Tunisia', boundary: 'poly/maghreb.kml')
   OSRM_CAR_INTERURBAN_SOUTH_AFRICA = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5005', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'South-Africa', boundary: 'poly/south-africa-and-lesotho.kml')
   OSRM_CAR_URBAN_USA_NE = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5101', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Northeast', boundary: 'poly/us-east-coast.kml')
   OSRM_CAR_URBAN_QUEBEC = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5102', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Quebec', boundary: 'poly/quebec.kml')
   OSRM_CAR_URBAN_TEXAS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5103', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/texas.kml')
+  OSRM_CAR_URBAN_COLORADO = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5106', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/colorado.kml')
+  OSRM_CAR_URBAN_ILLINOIS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5107', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/illinois.kml')
 
   OSRM_CAR_INTERURBAN = [
     OSRM_CAR_INTERURBAN_EUROPE,
     OSRM_CAR_INTERURBAN_USA_NE,
     OSRM_CAR_INTERURBAN_QUEBEC,
     OSRM_CAR_INTERURBAN_TEXAS,
+    OSRM_CAR_INTERURBAN_COLORADO,
+    OSRM_CAR_INTERURBAN_ILLINOIS,
     OSRM_CAR_INTERURBAN_MAGHREB,
     OSRM_CAR_INTERURBAN_SOUTH_AFRICA,
   ]
@@ -59,6 +65,8 @@ module RouterWrapper
     OSRM_CAR_URBAN_USA_NE,
     OSRM_CAR_URBAN_QUEBEC,
     OSRM_CAR_URBAN_TEXAS,
+    OSRM_CAR_URBAN_COLORADO,
+    OSRM_CAR_URBAN_ILLINOIS,
   ]
 
   OTP = {
