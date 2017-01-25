@@ -30,7 +30,8 @@ module RouterWrapper
   CACHE = CacheManager.new(ActiveSupport::Cache::RedisStore.new(host: ENV['REDIS_HOST'] || 'localhost', namespace: 'router', expires_in: 60*60*24*1, raise_errors: true))
 
   CROW = Wrappers::Crow.new(CACHE)
-  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://164.132.202.168:5005', url_distance: nil, url_isochrone: 'http://164.132.202.168:6005', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe')
+  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://c.router.mapotempo.com:5005', url_distance: nil, url_isochrone: 'http://c.router.mapotempo.com:6005', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
+  OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://c.router.mapotempo.com:5006', url_distance: nil, url_isochrone: 'http://c.router.mapotempo.com:6006', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
   OSRM_CAR_INTERURBAN_EUROPE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5000', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6000', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe-extended.kml')
   OSRM_CAR_URBAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5003', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6003', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France', boundary: 'poly/france-extended.kml')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
@@ -48,6 +49,11 @@ module RouterWrapper
   OSRM_CAR_URBAN_TEXAS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5103', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/texas.kml')
   OSRM_CAR_URBAN_COLORADO = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5106', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/colorado.kml')
   OSRM_CAR_URBAN_ILLINOIS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5107', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/illinois.kml')
+
+  OSRM_CAR = [
+    OSRM_CAR_EUROPE,
+    OSRM_CAR_FRANCE_OVERSEA,
+  ]
 
   OSRM_CAR_INTERURBAN = [
     OSRM_CAR_INTERURBAN_EUROPE,
@@ -105,7 +111,7 @@ module RouterWrapper
       services: {
         route_default: :car,
         route: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: OSRM_CAR_INTERURBAN,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
@@ -115,7 +121,7 @@ module RouterWrapper
           crow: [CROW],
         },
         matrix: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: OSRM_CAR_INTERURBAN,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
@@ -125,7 +131,7 @@ module RouterWrapper
           crow: [CROW],
         },
         isoline: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: [OSRM_CAR_INTERURBAN_EUROPE],
           car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
@@ -184,7 +190,7 @@ module RouterWrapper
       services: {
         route_default: :car,
         route: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: OSRM_CAR_INTERURBAN,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
@@ -195,7 +201,7 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         matrix: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: OSRM_CAR_INTERURBAN,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
@@ -206,7 +212,7 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         isoline: {
-          car2: [OSRM_CAR_EUROPE],
+          car2: OSRM_CAR,
           car: [OSRM_CAR_INTERURBAN_EUROPE],
           car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
