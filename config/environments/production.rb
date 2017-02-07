@@ -186,6 +186,7 @@ module RouterWrapper
       api_keys: [
         'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
         'waplanner-test-1-zaa5cha8zee9ChaiKae3quoonee1hiej',
+        'sabenis-test-1-c8eet5ooRaeghahX3Aroofahjahk3nue',
       ],
       services: {
         route_default: :car,
