@@ -49,6 +49,7 @@ module RouterWrapper
   OSRM_CAR_URBAN_TEXAS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5103', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Texas', boundary: 'poly/texas.kml')
   OSRM_CAR_URBAN_COLORADO = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5106', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Colorado', boundary: 'poly/colorado.kml')
   OSRM_CAR_URBAN_ILLINOIS = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5107', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Illinois', boundary: 'poly/illinois.kml')
+  OSRM_CAR_URBAN_INDONESIA = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5108', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Indonesia', boundary: 'poly/indonesia.kml')
 
   OSRM_CAR = [
     OSRM_CAR_EUROPE,
@@ -73,6 +74,7 @@ module RouterWrapper
     OSRM_CAR_URBAN_TEXAS,
     OSRM_CAR_URBAN_COLORADO,
     OSRM_CAR_URBAN_ILLINOIS,
+    OSRM_CAR_URBAN_INDONESIA,
   ]
 
   OTP = {
