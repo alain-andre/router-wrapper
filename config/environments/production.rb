@@ -145,6 +145,31 @@ module RouterWrapper
       }
     }, {
       api_keys: [
+        'baldr-test-1-iosengoh3Oi2Iehiquoh7ieGhee2eewe',
+      ],
+      services: {
+        route_default: :car,
+        route: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+        },
+        matrix: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+        },
+        isoline: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+        }
+      }
+    }, {
+      api_keys: [
         'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
         'urios-test-1-97a6df314147dadea67b64c80f8d5494',
       ],
