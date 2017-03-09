@@ -253,6 +253,37 @@ module RouterWrapper
       }
     }, {
       api_keys: [
+        'michelin-innovation-test-1-SaecheeChooleeghuHai1EikieyeiN5p',
+      ],
+      services: {
+        route_default: :car,
+        route: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+          crow: [CROW],
+          truck: [HERE_TRUCK],
+        },
+        matrix: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+          crow: [CROW],
+          truck: [HERE_TRUCK],
+        },
+        isoline: {
+          car: OSRM_CAR,
+          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
+          cycle: [OSRM_CYCLE_FRANCE],
+          public_transport: OTP,
+          crow: [CROW],
+          truck: [HERE_TRUCK],
+        }
+      }
+    }, {
+      api_keys: [
         'althea-test-e056ea36866a81665c51070b9bbc323164',
       ],
       services: {
