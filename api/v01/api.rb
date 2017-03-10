@@ -50,6 +50,7 @@ module Api
         elsif e.is_a?(Wrappers::UnreachablePointError)
           rack_response(format_message(response, nil), 204)
         else
+          Raven.capture_exception(e)
           rack_response(format_message(response, e.backtrace), 500)
         end
       end
