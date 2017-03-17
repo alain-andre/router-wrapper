@@ -146,6 +146,10 @@ module RouterWrapper
     }, {
       api_keys: [
         'baldr-test-1-iosengoh3Oi2Iehiquoh7ieGhee2eewe',
+        'hardis-test-1-ApukaMei6eicuja6ooha0juceeHeek2o',
+        'aplus-test-1-as8nee1aiPhiGhoox9Soow1Chai0eiVo',
+        'cc3i-test-1-ipeegh2iaka4waiJ8uchielahnapeiv6',
+        'cofisoft-test-1-efokumeem4Bi6hu8su4vahn1gi0woov5',
       ],
       services: {
         route_default: :car,
@@ -254,6 +258,9 @@ module RouterWrapper
     }, {
       api_keys: [
         'michelin-innovation-test-1-SaecheeChooleeghuHai1EikieyeiN5p',
+        'transalliance-test-1-XohjeeD0aghaamoh3uwo7Ieseew8diet',
+        'microtrans-test-1-gee0aewishohSh1Ceeja4Poulahgheiy',
+        'kratzer-test-1-rieyohy9Hu1Iecei6weiph5rehee5Jei',
       ],
       services: {
         route_default: :car,
