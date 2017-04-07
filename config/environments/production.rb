@@ -103,6 +103,7 @@ module RouterWrapper
     product_contact_email: 'tech@mapotempo.com',
     product_contact_url: 'https://github.com/Mapotempo/router-wrapper',
     profiles: [{
+      # Deprecated Car
       api_keys: [
         'demo',
         'alyacom-test-e2f5c1a84d810f6a9a7cb6ba969300dab6324c16a1f496e389953f67',
@@ -144,12 +145,14 @@ module RouterWrapper
         }
       }
     }, {
+      # Car
       api_keys: [
         'baldr-test-1-iosengoh3Oi2Iehiquoh7ieGhee2eewe',
         'hardis-test-1-ApukaMei6eicuja6ooha0juceeHeek2o',
         'aplus-test-1-as8nee1aiPhiGhoox9Soow1Chai0eiVo',
         'cc3i-test-1-ipeegh2iaka4waiJ8uchielahnapeiv6',
         'cofisoft-test-1-efokumeem4Bi6hu8su4vahn1gi0woov5',
+        'galigeo-test-1-Ci9ith7qui5Quotohreotih5joohaise',
       ],
       services: {
         route_default: :car,
@@ -173,6 +176,7 @@ module RouterWrapper
         }
       }
     }, {
+      # Deprecated Car + Truck
       api_keys: [
         'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
         'urios-test-1-97a6df314147dadea67b64c80f8d5494',
@@ -256,6 +260,7 @@ module RouterWrapper
         }
       }
     }, {
+      # Car + Truck
       api_keys: [
         'michelin-innovation-test-1-SaecheeChooleeghuHai1EikieyeiN5p',
         'transalliance-test-1-XohjeeD0aghaamoh3uwo7Ieseew8diet',
