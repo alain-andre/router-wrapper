@@ -103,21 +103,16 @@ module RouterWrapper
     product_contact_email: 'tech@mapotempo.com',
     product_contact_url: 'https://github.com/Mapotempo/router-wrapper',
     profiles: [{
-      # Deprecated Car
+      # Car, with car2 alias, Apologic only
       api_keys: [
-        'demo',
-        'alyacom-test-e2f5c1a84d810f6a9a7cb6ba969300dab6324c16a1f496e389953f67',
         'apologic-1-9f9f5d62b4c32ce08f7f1bd144133e088f59c445',
         'apologic-beta-79728b4dbd59e080d36ba862d592d694',
-        'admr-test-1-3ba76b0f79c1a8517a9d3d101dcbd837',
       ],
       services: {
         route_default: :car,
         route: {
           car2: OSRM_CAR,
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -125,9 +120,7 @@ module RouterWrapper
         },
         matrix: {
           car2: OSRM_CAR,
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -135,9 +128,7 @@ module RouterWrapper
         },
         isoline: {
           car2: OSRM_CAR,
-          car: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_urban: [OSRM_CAR_URBAN_FRANCE],
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -153,6 +144,8 @@ module RouterWrapper
         'cc3i-test-1-ipeegh2iaka4waiJ8uchielahnapeiv6',
         'cofisoft-test-1-efokumeem4Bi6hu8su4vahn1gi0woov5',
         'galigeo-test-1-Ci9ith7qui5Quotohreotih5joohaise',
+        'alyacom-test-e2f5c1a84d810f6a9a7cb6ba969300dab6324c16a1f496e389953f67',
+        'admr-test-1-3ba76b0f79c1a8517a9d3d101dcbd837',
       ],
       services: {
         route_default: :car,
@@ -178,14 +171,15 @@ module RouterWrapper
     }, {
       # Deprecated Car + Truck
       api_keys: [
+        'demo',
         'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
+        'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
         'urios-test-1-97a6df314147dadea67b64c80f8d5494',
       ],
       services: {
         route_default: :car,
         route: {
-          car2: [OSRM_CAR_EUROPE],
-          car: OSRM_CAR_INTERURBAN,
+          car: OSRM_CAR,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -195,8 +189,7 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         matrix: {
-          car2: [OSRM_CAR_EUROPE],
-          car: OSRM_CAR_INTERURBAN,
+          car: OSRM_CAR,
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -206,50 +199,7 @@ module RouterWrapper
           truck: [HERE_TRUCK],
         },
         isoline: {
-          car2: [OSRM_CAR_EUROPE],
-          car: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_urban: [OSRM_CAR_URBAN_FRANCE],
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        }
-      }
-    }, {
-      api_keys: [
-        'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
-        'waplanner-test-1-zaa5cha8zee9ChaiKae3quoonee1hiej',
-        'sabenis-test-1-c8eet5ooRaeghahX3Aroofahjahk3nue',
-      ],
-      services: {
-        route_default: :car,
-        route: {
-          car2: OSRM_CAR,
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        },
-        matrix: {
-          car2: OSRM_CAR,
-          car: OSRM_CAR_INTERURBAN,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        },
-        isoline: {
-          car2: OSRM_CAR,
-          car: [OSRM_CAR_INTERURBAN_EUROPE],
+          car: OSRM_CAR,
           car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
           car_urban: [OSRM_CAR_URBAN_FRANCE],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -262,10 +212,14 @@ module RouterWrapper
     }, {
       # Car + Truck
       api_keys: [
+        'althea-test-e056ea36866a81665c51070b9bbc323164',
         'michelin-innovation-test-1-SaecheeChooleeghuHai1EikieyeiN5p',
         'transalliance-test-1-XohjeeD0aghaamoh3uwo7Ieseew8diet',
         'microtrans-test-1-gee0aewishohSh1Ceeja4Poulahgheiy',
         'kratzer-test-1-rieyohy9Hu1Iecei6weiph5rehee5Jei',
+        'urios-test-1-97a6df314147dadea67b64c80f8d5494',
+        'waplanner-test-1-zaa5cha8zee9ChaiKae3quoonee1hiej',
+        'sabenis-test-1-c8eet5ooRaeghahX3Aroofahjahk3nue',
       ],
       services: {
         route_default: :car,
@@ -291,22 +245,6 @@ module RouterWrapper
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
           crow: [CROW],
-          truck: [HERE_TRUCK],
-        }
-      }
-    }, {
-      api_keys: [
-        'althea-test-e056ea36866a81665c51070b9bbc323164',
-      ],
-      services: {
-        route_default: :truck,
-        route: {
-          truck: [HERE_TRUCK],
-        },
-        matrix: {
-          truck: [HERE_TRUCK],
-        },
-        isoline: {
           truck: [HERE_TRUCK],
         }
       }
