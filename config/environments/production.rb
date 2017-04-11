@@ -103,7 +103,7 @@ module RouterWrapper
     product_contact_email: 'tech@mapotempo.com',
     product_contact_url: 'https://github.com/Mapotempo/router-wrapper',
     profiles: [{
-      # Car, with car2 alias, Apologic only
+      # Car as car2, Apologic only
       api_keys: [
         'apologic-1-9f9f5d62b4c32ce08f7f1bd144133e088f59c445',
         'apologic-beta-79728b4dbd59e080d36ba862d592d694',
@@ -112,7 +112,6 @@ module RouterWrapper
         route_default: :car,
         route: {
           car2: OSRM_CAR,
-          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -120,7 +119,6 @@ module RouterWrapper
         },
         matrix: {
           car2: OSRM_CAR,
-          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -128,7 +126,6 @@ module RouterWrapper
         },
         isoline: {
           car2: OSRM_CAR,
-          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
