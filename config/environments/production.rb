@@ -90,6 +90,8 @@ module RouterWrapper
     marseille: {licence: 'ODbL', attribution: 'Syndicat Mixte des Transports des Bouches-du-Rhône', area: 'Marseille, France', boundary: 'poly/france-marseille.kml', crs: 'EPSG:2154'},
     nice: {licence: 'LO', attribution: 'Régie Ligne d''Azur', area: 'Nice, France', boundary: 'poly/france-nice.kml', crs: 'EPSG:2154'},
     brest: {licence: 'LO', attribution: 'Bibus Brest Métropole', area: 'Brest, France', boundary: 'poly/france-brest.kml', crs: 'EPSG:2154'},
+    poitiers: {licence: 'ODbL', attribution: 'Grand Poitiers', area: 'Poitiers, France', boundary: 'poly/france-poitiers.kml', crs: 'EPSG:2154'},
+    lille: {licence: 'LO', attribution: 'Lille Métropole', area: 'Lille, France', boundary: 'poly/france-lille.kml', crs: 'EPSG:2154'},
   }.collect{ |k, v|
     Wrappers::Otp.new(CACHE, v.merge(url: 'http://localhost:7000', router_id: k.to_s))
   }
