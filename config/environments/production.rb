@@ -219,6 +219,7 @@ module RouterWrapper
         'urios-test-1-97a6df314147dadea67b64c80f8d5494',
         'waplanner-test-1-zaa5cha8zee9ChaiKae3quoonee1hiej',
         'sabenis-test-1-c8eet5ooRaeghahX3Aroofahjahk3nue',
+        'mobix-test-1-eeTeaw1ra2fi4AiC7abo0AiDae7loqui',
       ],
       services: {
         route_default: :car,
