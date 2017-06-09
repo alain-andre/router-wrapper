@@ -32,8 +32,6 @@ module RouterWrapper
   CROW = Wrappers::Crow.new(CACHE)
   OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5005', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6005', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
   OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5006', url_distance: nil, url_isochrone: 'http://localhost:6006', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
-  OSRM_CAR_INTERURBAN_EUROPE = Wrappers::Osrm4.new(CACHE, url_time: 'http://a.router.mapotempo.com:5000', url_distance: 'http://a.router.mapotempo.com:5004', url_isochrone: 'http://a.router.mapotempo.com:6000', url_isodistance: 'http://a.router.mapotempo.com:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe-extended.kml')
-  OSRM_CAR_URBAN_FRANCE = Wrappers::Osrm4.new(CACHE, url_time: 'http://a.router.mapotempo.com:5003', url_distance: 'http://a.router.mapotempo.com:5004', url_isochrone: 'http://a.router.mapotempo.com:6003', url_isodistance: 'http://a.router.mapotempo.com:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France', boundary: 'poly/france-extended.kml')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5001', url_isochrone: 'http://localhost:6001', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   # tmp
@@ -58,7 +56,6 @@ module RouterWrapper
   ]
 
   OSRM_CAR_INTERURBAN = [
-    OSRM_CAR_INTERURBAN_EUROPE,
     OSRM_CAR_INTERURBAN_USA_NE,
     OSRM_CAR_INTERURBAN_QUEBEC,
     OSRM_CAR_INTERURBAN_TEXAS,
@@ -69,7 +66,6 @@ module RouterWrapper
   ]
 
   OSRM_CAR_URBAN = [
-    OSRM_CAR_URBAN_FRANCE,
     OSRM_CAR_URBAN_USA_NE,
     OSRM_CAR_URBAN_QUEBEC,
     OSRM_CAR_URBAN_TEXAS,
@@ -139,6 +135,7 @@ module RouterWrapper
     }, {
       # Car
       api_keys: [
+        'demo',
         'baldr-test-1-iosengoh3Oi2Iehiquoh7ieGhee2eewe',
         'hardis-test-1-ApukaMei6eicuja6ooha0juceeHeek2o',
         'aplus-test-1-as8nee1aiPhiGhoox9Soow1Chai0eiVo',
@@ -173,49 +170,10 @@ module RouterWrapper
         }
       }
     }, {
-      # Deprecated Car + Truck
-      api_keys: [
-        'demo',
-        'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
-        'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
-        'urios-test-1-97a6df314147dadea67b64c80f8d5494',
-      ],
-      services: {
-        route_default: :car,
-        route: {
-          car: OSRM_CAR,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        },
-        matrix: {
-          car: OSRM_CAR,
-          car_interurban: OSRM_CAR_INTERURBAN,
-          car_urban: OSRM_CAR_URBAN,
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        },
-        isoline: {
-          car: OSRM_CAR,
-          car_interurban: [OSRM_CAR_INTERURBAN_EUROPE],
-          car_urban: [OSRM_CAR_URBAN_FRANCE],
-          pedestrian: [OSRM_PEDESTRIAN_FRANCE],
-          cycle: [OSRM_CYCLE_FRANCE],
-          public_transport: OTP,
-          crow: [CROW],
-          truck: [HERE_TRUCK],
-        }
-      }
-    }, {
       # Car + Truck
       api_keys: [
+        'mapotempo-web-1-d701e4a905fbd3c8d0600a2af433db8b',
+        'mapotempo-web-beta-d701e4a905fbd3c8d0600a2af433db8b',
         'althea-test-e056ea36866a81665c51070b9bbc323164',
         'michelin-innovation-test-1-SaecheeChooleeghuHai1EikieyeiN5p',
         'transalliance-test-1-XohjeeD0aghaamoh3uwo7Ieseew8diet',
@@ -230,6 +188,8 @@ module RouterWrapper
         route_default: :car,
         route: {
           car: OSRM_CAR,
+          car_interurban: OSRM_CAR_INTERURBAN,
+          car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -238,6 +198,8 @@ module RouterWrapper
         },
         matrix: {
           car: OSRM_CAR,
+          car_interurban: OSRM_CAR_INTERURBAN,
+          car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -246,6 +208,8 @@ module RouterWrapper
         },
         isoline: {
           car: OSRM_CAR,
+          car_interurban: [],
+          car_urban: [],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
