@@ -50,6 +50,7 @@ module RouterWrapper
   OSRM_CAR_URBAN_MAGHREB = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5104', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Morooco, Algeria, Tunisia', boundary: 'poly/maghreb.kml')
   OSRM_CAR_URBAN_INDONESIA = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5108', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Indonesia', boundary: 'poly/indonesia.kml')
   OSRM_CAR_URBAN_AUSTRALIA = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5109', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Australia', boundary: 'poly/australia.kml')
+  OSRM_CAR_URBAN_SENEGAL = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5110', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Senegal', boundary: 'poly/senegal-and-gambia.kml')
 
   OSRM_CAR = [
     OSRM_CAR_EUROPE,
@@ -75,6 +76,7 @@ module RouterWrapper
     OSRM_CAR_URBAN_MAGHREB,
     OSRM_CAR_URBAN_INDONESIA,
     OSRM_CAR_URBAN_AUSTRALIA,
+    OSRM_CAR_URBAN_SENEGAL,
   ]
 
   OTP = {
