@@ -153,6 +153,7 @@ module RouterWrapper
         'inlecom-1-pe3io4Ui5aimobich1oot0eilothongo', # SELIS
         'chronolink-test-1-Oi9sun5Yee5iNiava2feif0yaechuoTh',
         'danem-test-1-ooy4Zoomahzad2ain8jahPaikieraire',
+        'ulb-1-johm6ef7shaRaem6ue5aeDah8sise4op', # SELIS
       ],
       services: {
         route_default: :car,
