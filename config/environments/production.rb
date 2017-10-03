@@ -116,6 +116,7 @@ module RouterWrapper
         route_default: :car,
         route: {
           car2: OSRM_CAR,
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -123,6 +124,7 @@ module RouterWrapper
         },
         matrix: {
           car2: OSRM_CAR,
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -130,6 +132,7 @@ module RouterWrapper
         },
         isoline: {
           car2: OSRM_CAR,
+          car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
