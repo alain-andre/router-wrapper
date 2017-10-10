@@ -30,6 +30,8 @@ en:
       name: Urban zone / car
     car_shortest:
       name: Shortest
+    truck_medium:
+      name: Truck Medium
     pedestrian:
       name: Pedestrian
     cycle:

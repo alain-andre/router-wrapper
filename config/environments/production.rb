@@ -30,10 +30,11 @@ module RouterWrapper
   CACHE = CacheManager.new(ActiveSupport::Cache::RedisStore.new(host: ENV['REDIS_HOST'] || 'localhost', namespace: 'router', expires_in: 60*60*24*1, raise_errors: true))
 
   CROW = Wrappers::Crow.new(CACHE)
-  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5005', url_distance: 'http://localhost:5004', url_isochrone: 'http://localhost:6005', url_isodistance: 'http://localhost:6004', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
-  OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5006', url_distance: nil, url_isochrone: 'http://localhost:6006', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
-  OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5002', url_isochrone: 'http://localhost:6002', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
-  OSRM_CYCLE_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://localhost:5001', url_isochrone: 'http://localhost:6001', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
+  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
+  OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-overseas:5000', url_distance: nil, url_isochrone: 'http://osrm-car-overseas:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
+  OSRM_TRUCK_MEDIUM = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-truck-medium-france:5000', url_distance: nil, url_isochrone: 'http://osrm-truck-medium-france:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors')
+  OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-foot-france:5000', url_isochrone: 'http://osrm-foot-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
+  OSRM_CYCLE_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-bicycle-france:5000', url_isochrone: 'http://osrm-bicycle-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   # tmp
   OSRM_CAR_INTERURBAN_USA_NE = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5001', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'US Northeast', boundary: 'poly/us-east-coast.kml')
   OSRM_CAR_INTERURBAN_QUEBEC = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5002', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Quebec', boundary: 'poly/quebec.kml')
@@ -103,7 +104,7 @@ module RouterWrapper
     poitiers: {licence: 'ODbL', attribution: 'Grand Poitiers', area: 'Poitiers, France', boundary: 'poly/france-poitiers.kml', crs: 'EPSG:2154'},
     lille: {licence: 'LO', attribution: 'Lille Métropole', area: 'Lille, France', boundary: 'poly/france-lille.kml', crs: 'EPSG:2154'},
   }.collect{ |k, v|
-    Wrappers::Otp.new(CACHE, v.merge(url: 'http://localhost:7000', router_id: k.to_s))
+    Wrappers::Otp.new(CACHE, v.merge(url: 'http://otp:7000', router_id: k.to_s))
   }
 
   HERE_APP_ID = 'yihiGwg1ibLi0q6BfBOa'
@@ -170,6 +171,7 @@ module RouterWrapper
         route_default: :car,
         route: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -177,6 +179,7 @@ module RouterWrapper
         },
         matrix: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -184,6 +187,7 @@ module RouterWrapper
         },
         isoline: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -210,6 +214,7 @@ module RouterWrapper
         route_default: :car,
         route: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -220,6 +225,7 @@ module RouterWrapper
         },
         matrix: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           car_interurban: OSRM_CAR_INTERURBAN,
           car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
@@ -230,6 +236,7 @@ module RouterWrapper
         },
         isoline: {
           car: OSRM_CAR,
+          truck_medium: [OSRM_TRUCK_MEDIUM],
           car_interurban: [],
           car_urban: [],
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],

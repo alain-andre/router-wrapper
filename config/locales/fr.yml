@@ -30,6 +30,8 @@ fr:
       name: Zone urbaine / voiture
     car_shortest:
       name:
+    medium_truck:
+      name: Camion Moyen
     pedestrian:
       name: Piéton
     cycle:
