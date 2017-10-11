@@ -193,6 +193,7 @@ module RouterWrapper
         'waplanner-test-1-zaa5cha8zee9ChaiKae3quoonee1hiej',
         'sabenis-test-1-c8eet5ooRaeghahX3Aroofahjahk3nue',
         'mobix-test-1-eeTeaw1ra2fi4AiC7abo0AiDae7loqui',
+        'ikos-1-ahjocu9Foh1ta4uw3poojebi0guu9egh', # IKOS / LHOTELLIER - etic-studio
       ],
       services: {
         route_default: :car,
