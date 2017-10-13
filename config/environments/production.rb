@@ -115,24 +115,24 @@ module RouterWrapper
       services: {
         route_default: :car,
         route: {
-          car2: OSRM_CAR,
           car: OSRM_CAR,
+          car2: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
           crow: [CROW],
         },
         matrix: {
-          car2: OSRM_CAR,
           car: OSRM_CAR,
+          car2: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
           crow: [CROW],
         },
         isoline: {
-          car2: OSRM_CAR,
           car: OSRM_CAR,
+          car2: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
@@ -165,18 +165,21 @@ module RouterWrapper
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
         },
         matrix: {
           car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
         },
         isoline: {
           car: OSRM_CAR,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
+          crow: [CROW],
         }
       }
     }, {
