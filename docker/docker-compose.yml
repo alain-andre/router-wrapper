@@ -6,7 +6,7 @@ services:
       dockerfile: docker/Dockerfile
     image: mapotempo/router-wrapper:${MAPOTEMPO_VERSION:-56.0.1}
     ports:
-      - "8082:80" # HOST:CONTAINER, edit only HOST part
+      - "127.0.0.1:8082:80" # HOST:CONTAINER, edit only HOST part
     volumes:
       - ./production.rb:/srv/app/config/environments/production.rb
       - ./production.rb:/srv/app/config/environments/development.rb
@@ -24,16 +24,92 @@ services:
       args:
         OTP_VERSION: 1.0.0
     image: mapotempo/otp-server:1.0.0
+    ports:
+      - "7000:7000"
     volumes:
+      - ./osm/:/srv/osm/
       - ./otp/data:/srv/otp/data
     restart: always
 
-  osrm-car-iceland:
+  osrm-car-overseas:
+    build:
+      context: osrm/server
+    image: mapotempo/osrm-server:${OSRM_VERSION:-5.10.0-mt1}
+    environment:
+      BASENAME: car-overseas
+    ports:
+      - "5006:5000"
+      - "6006:1723"
+    volumes:
+      - ./osrm/data:/srv/osrm/data
+      - /dev/log:/dev/log
+    restart: always
+
+  osrm-car-europe:
     build:
       context: osrm/server
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
-      BASENAME: car-iceland
+      BASENAME: car-europe
+    ports:
+      - "127.0.0.1:5005:5000"
+      - "6005:1723"
+    volumes:
+      - ./osrm/data:/srv/osrm/data
+      - /dev/log:/dev/log
+    restart: always
+
+  osrm-car-france-distance:
+    build:
+      context: osrm/server
+    image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
+    environment:
+      BASENAME: car-france-distance
+    ports:
+      - "5004:5000"
+      - "6004:1723"
+    volumes:
+      - ./osrm/data:/srv/osrm/data
+      - /dev/log:/dev/log
+    restart: always
+
+  osrm-truck-medium-france:
+    build:
+      context: osrm/server
+    image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
+    environment:
+      BASENAME: truck_medium-france
+    ports:
+      - "5007:5000"
+      - "6007:1723"
+    volumes:
+      - ./osrm/data:/srv/osrm/data
+      - /dev/log:/dev/log
+    restart: always
+
+  osrm-foot-france:
+    build:
+      context: osrm/server
+    image: mapotempo/osrm-server:${OSRM_VERSION:-5.10.0-mt1}
+    environment:
+      BASENAME: foot-france
+    ports:
+      - "5002:5000"
+      - "6002:1723"
+    volumes:
+      - ./osrm/data:/srv/osrm/data
+      - /dev/log:/dev/log
+    restart: always
+
+  osrm-bicycle-france:
+    build:
+      context: osrm/server
+    image: mapotempo/osrm-server:${OSRM_VERSION:-5.10.0-mt1}
+    environment:
+      BASENAME: bicycle-france
+    ports:
+      - "5001:5000"
+      - "6001:1723"
     volumes:
       - ./osrm/data:/srv/osrm/data
       - /dev/log:/dev/log
