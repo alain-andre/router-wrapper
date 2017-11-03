@@ -224,15 +224,15 @@ module Wrappers
           licence: @licence,
           attribution: @attribution,
         },
-        "matrix_#{dim1}".to_sym => dim1 == :distance ? json['distances'] : json['durations'].collect { |r|
+        "matrix_time".to_sym => dim1 == :time || dim2 == :time ? json['durations'].collect { |r|
           r.collect { |rr|
             rr ? (rr * 1.0 / (options[:speed_multiplier] || 1)).round : nil
           }
-        }
+        } : nil
       }
 
-      if dim2
-        ret["matrix_#{dim2}".to_sym] = srcs.collect{ |src|
+      if dim2 == :distance || dim1 == :distance
+        ret["matrix_distance".to_sym] = srcs.collect{ |src|
           dsts.collect{ |dst|
             if src == dst
               0.0
@@ -273,11 +273,7 @@ module Wrappers
               end
 
               if json['code'] == 'Ok'
-                if dim2 == :distance
-                  json['routes'][0]['distance']
-                else
-                  (json['routes'][0]['duration'] * 1.0 / (options[:speed_multiplier] || 1)).round
-                end
+                json['routes'][0]['distance']
               end
             end
           }
