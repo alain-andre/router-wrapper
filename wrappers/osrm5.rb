@@ -94,7 +94,7 @@ module Wrappers
           geometries: options[:format] != 'geojson' && {5 => :polyline, 6 => :polyline6}[options[:precision]] || :geojson,
           overview: with_geometry ? :full : false,
           continue_straight: false,
-          generate_hints: false,
+#          generate_hints: false, ########################################" Doest not use with old osrm version : To re-enabled
           approaches: options[:approach] == :curb ? (['curb'] * locs.size).join(';') : nil,
           exclude: [
             toll? && options[:toll] == false ? 'toll' : nil,
