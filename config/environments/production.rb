@@ -30,9 +30,9 @@ module RouterWrapper
   CACHE = CacheManager.new(ActiveSupport::Cache::RedisStore.new(host: ENV['REDIS_HOST'] || 'localhost', namespace: 'router', expires_in: 60*60*24*1, raise_errors: true))
 
   CROW = Wrappers::Crow.new(CACHE)
-  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
+  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
   OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-overseas:5000', url_distance: nil, url_isochrone: 'http://osrm-car-overseas:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
-  OSRM_TRUCK_MEDIUM = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-truck-medium-france:5000', url_distance: nil, url_isochrone: 'http://osrm-truck-medium-france:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors')
+  OSRM_TRUCK_MEDIUM = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-truck-medium-france:5000', url_distance: nil, url_isochrone: 'http://osrm-truck-medium-france:1723', url_isodistance: nil, track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-foot-france:5000', url_isochrone: 'http://osrm-foot-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-bicycle-france:5000', url_isochrone: 'http://osrm-bicycle-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   # tmp
