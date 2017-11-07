@@ -52,7 +52,7 @@ services:
     environment:
       BASENAME: car-europe
     ports:
-      - "127.0.0.1:5005:5000"
+      - "5005:5000"
       - "6005:1723"
     volumes:
       - ./osrm/data:/srv/osrm/data
