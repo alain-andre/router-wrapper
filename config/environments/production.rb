@@ -106,7 +106,7 @@ module RouterWrapper
     poitiers: {licence: 'ODbL', attribution: 'Grand Poitiers', area: 'Poitiers, France', boundary: 'poly/france-poitiers.kml', crs: 'EPSG:2154'},
     lille: {licence: 'LO', attribution: 'Lille Métropole', area: 'Lille, France', boundary: 'poly/france-lille.kml', crs: 'EPSG:2154'},
   }.collect{ |k, v|
-    Wrappers::Otp.new(CACHE, v.merge(url: 'http://otp:7000', router_id: k.to_s))
+    Wrappers::Otp.new(CACHE, v.merge(url: "http://otp-#{k.to_s}:7000", router_id: k.to_s))
   }
 
   HERE_APP_ID = 'yihiGwg1ibLi0q6BfBOa'

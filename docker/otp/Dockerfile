@@ -2,12 +2,12 @@ FROM java:openjdk-8-jre
 
 LABEL maintainer="Mapotempo <contact@mapotempo.com>"
 
-ARG OTP_VERSION 
-ENV OTP_VERSION ${OTP_VERSION:-1.0.0}
+ARG OTP_VERSION
+ENV OTP_VERSION ${OTP_VERSION:-1.2.0}
 
 ENV OTP /srv/otp/otp-${OTP_VERSION}-shaded.jar
 
-RUN mkdir -p $(dirname ${OTP}) && wget http://maven.conveyal.com.s3.amazonaws.com/org/opentripplanner/otp/${OTP_VERSION}/otp-${OTP_VERSION}-shaded.jar -O ${OTP}
+RUN mkdir -p $(dirname ${OTP}) && wget https://repo1.maven.org/maven2/org/opentripplanner/otp/${OTP_VERSION}/otp-${OTP_VERSION}-shaded.jar -O ${OTP}
 
 # Install needed packages
 RUN apt-get update && \
