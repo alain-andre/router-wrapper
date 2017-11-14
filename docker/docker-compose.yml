@@ -37,6 +37,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: car-overseas
+      NODE_CONFIG: "{ \"maxspeed\": 104 }"
     ports:
       - "5006:5000"
       - "6006:1723"
@@ -51,6 +52,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: car-europe
+      NODE_CONFIG: "{ \"maxspeed\": 104 }"
     ports:
       - "5005:5000"
       - "6005:1723"
@@ -65,6 +67,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: car-france-distance
+      NODE_CONFIG: "{ \"maxspeed\": 3.6 }"
     ports:
       - "5004:5000"
       - "6004:1723"
@@ -79,6 +82,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: truck_medium-france
+      NODE_CONFIG: "{ \"maxspeed\": 104 }"
     ports:
       - "5007:5000"
       - "6007:1723"
@@ -93,6 +97,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: foot-france
+      NODE_CONFIG: "{ \"maxspeed\": 5 }"
     ports:
       - "5002:5000"
       - "6002:1723"
@@ -107,6 +112,7 @@ services:
     image: mapotempo/osrm-server:${OSRM_VERSION:-5.12.0-mt1}
     environment:
       BASENAME: bicycle-france
+      NODE_CONFIG: "{ \"maxspeed\": 15 }"
     ports:
       - "5001:5000"
       - "6001:1723"
