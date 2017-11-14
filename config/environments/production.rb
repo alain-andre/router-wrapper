@@ -56,6 +56,7 @@ module RouterWrapper
   OSRM_CAR_URBAN_GCC = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5111', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'GCC', boundary: 'poly/gcc.kml')
   OSRM_CAR_URBAN_IRAN = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5112', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Iran', boundary: 'poly/iran.kml')
   OSRM_CAR_URBAN_MYANMAR = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5113', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Myanmar', boundary: 'poly/myanmar.kml')
+  OSRM_CAR_URBAN_ARGENTINA = Wrappers::Osrm5.new(CACHE, url_time: 'http://delta.mapotempo.com:5114', url_distance: nil, url_isochrone: nil, url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Argentina', boundary: 'poly/argentina.kml')
 
   OSRM_CAR = [
     OSRM_CAR_EUROPE,
@@ -86,6 +87,7 @@ module RouterWrapper
     OSRM_CAR_URBAN_GCC,
     OSRM_CAR_URBAN_IRAN,
     OSRM_CAR_URBAN_MYANMAR,
+    OSRM_CAR_URBAN_ARGENTINA,
   ]
 
   OTP = {
