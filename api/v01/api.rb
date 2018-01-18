@@ -46,6 +46,7 @@ module Api
         elsif e.is_a?(RouterWrapper::OutOfSupportedAreaOrNotSupportedDimensionError)
           rack_response(format_message(response, nil), 417)
         elsif e.is_a?(RouterWrapper::InvalidArgumentError)
+          Raven.capture_exception(e)
           rack_response(format_message(response, nil), 400)
         elsif e.is_a?(Wrappers::UnreachablePointError)
           rack_response(format_message(response, nil), 204)
