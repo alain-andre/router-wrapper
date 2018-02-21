@@ -32,6 +32,7 @@ module RouterWrapper
   CROW = Wrappers::Crow.new(CACHE)
   OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
   OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-overseas:5000', url_distance: nil, url_isochrone: 'http://osrm-car-overseas:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
+  OSRM_CAR_INTERURBAN_ISRAEL_AND_PALESTINE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-interurban-israel-and-palestine:5000', url_distance: nil, url_isochrone: 'http://osrm-car-interurban-israel-and-palestine:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Israel and Palestine', boundary: 'poly/israel-and-palestine.kml')
   OSRM_TRUCK_MEDIUM = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-truck-medium-france:5000', url_distance: nil, url_isochrone: 'http://osrm-truck-medium-france:1723', url_isodistance: nil, track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-foot-france:5000', url_isochrone: 'http://osrm-foot-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
   OSRM_CYCLE_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-bicycle-france:5000', url_isochrone: 'http://osrm-bicycle-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
@@ -64,6 +65,7 @@ module RouterWrapper
   ]
 
   OSRM_CAR_INTERURBAN = [
+    OSRM_CAR_INTERURBAN_ISRAEL_AND_PALESTINE,
     OSRM_CAR_INTERURBAN_USA_NE,
     OSRM_CAR_INTERURBAN_QUEBEC,
     OSRM_CAR_INTERURBAN_TEXAS,
@@ -239,8 +241,8 @@ module RouterWrapper
         isoline: {
           car: OSRM_CAR,
           truck_medium: [OSRM_TRUCK_MEDIUM],
-          car_interurban: [],
-          car_urban: [],
+          car_interurban: OSRM_CAR_INTERURBAN,
+          car_urban: OSRM_CAR_URBAN,
           pedestrian: [OSRM_PEDESTRIAN_FRANCE],
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
