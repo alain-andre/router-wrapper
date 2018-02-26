@@ -29,9 +29,36 @@ module RouterWrapper
   ActiveSupport::Cache.lookup_store :redis_store
   CACHE = CacheManager.new(ActiveSupport::Cache::RedisStore.new(host: ENV['REDIS_HOST'] || 'localhost', namespace: 'router', expires_in: 60*60*24*1, raise_errors: true))
 
+  whitelist_classes = %w[toll motorway track]
+
+  area_mapping = [
+    {
+      mask: %w[l1 l2],
+      mapping: {
+        [true, true]   => 'urban_dense',
+        [true, false]  => 'urban',
+        [false, false] => 'interurban',
+        [false, true]  => 'water_body'
+      }
+    },
+    {
+      mask: %w[w1 w2 w3],
+      mapping: {
+        [true, true, true]    => 'trunk',
+        [true, true, false]   => 'primary',
+        [true, false, true]   => 'secondary',
+        [true, false, false]  => 'tertiary',
+        [false, true, true]   => 'residential',
+        [false, true, false]  => 'minor',
+        [false, false, true]  => nil,
+        [false, false, false] => nil
+      }
+    }
+  ]
+
   CROW = Wrappers::Crow.new(CACHE)
-  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
-  OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-overseas:5000', url_distance: nil, url_isochrone: 'http://osrm-car-overseas:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
+  OSRM_CAR_EUROPE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-europe:5000', url_distance: 'http://osrm-car-france-distance:5000', url_isochrone: 'http://osrm-car-europe:1723', url_isodistance: 'http://osrm-car-france-distance:1723', track: true, toll: true, motorway: true, area_mapping: area_mapping, whitelist_classes: whitelist_classes, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Europe', boundary: 'poly/europe.kml')
+  OSRM_CAR_FRANCE_OVERSEA = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-overseas:5000', url_distance: nil, url_isochrone: 'http://osrm-car-overseas:1723', url_isodistance: nil, area_mapping: area_mapping, whitelist_classes: whitelist_classes, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France Oversea', boundary: 'poly/france-oversea.kml')
   OSRM_CAR_INTERURBAN_ISRAEL_AND_PALESTINE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-car-interurban-israel-and-palestine:5000', url_distance: nil, url_isochrone: 'http://osrm-car-interurban-israel-and-palestine:1723', url_isodistance: nil, licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'Israel and Palestine', boundary: 'poly/israel-and-palestine.kml')
   OSRM_TRUCK_MEDIUM = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-truck-medium-france:5000', url_distance: nil, url_isochrone: 'http://osrm-truck-medium-france:1723', url_isodistance: nil, track: true, toll: true, motorway: true, licence: 'ODbL', attribution: '© OpenStreetMap contributors')
   OSRM_PEDESTRIAN_FRANCE = Wrappers::Osrm5.new(CACHE, url_time: 'http://osrm-foot-france:5000', url_isochrone: 'http://osrm-foot-france:1723', licence: 'ODbL', attribution: '© OpenStreetMap contributors', area: 'France')
