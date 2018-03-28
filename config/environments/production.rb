@@ -141,6 +141,7 @@ module RouterWrapper
   HERE_APP_ID = 'yihiGwg1ibLi0q6BfBOa'
   HERE_APP_CODE = '5GEGWZnjPAA-ZIwc7DF3Mw'
   HERE_TRUCK = Wrappers::Here.new(CACHE, app_id: HERE_APP_ID, app_code: HERE_APP_CODE, mode: 'truck')
+  HERE_CAR = Wrappers::Here.new(CACHE, app_id: HERE_APP_ID, app_code: HERE_APP_CODE, mode: 'car')
 
   @@c = {
     product_title: 'Router Wrapper API',
@@ -275,6 +276,26 @@ module RouterWrapper
           cycle: [OSRM_CYCLE_FRANCE],
           public_transport: OTP,
           crow: [CROW],
+          truck: [HERE_TRUCK],
+        }
+      }
+    }, {
+      # Here
+      api_keys: [
+        'mapotempo-fleet-d701e4a905fbd3c8d0600a2af433db8b',
+      ],
+      services: {
+        route_default: :car,
+        route: {
+          car: [HERE_CAR],
+          truck: [HERE_TRUCK],
+        },
+        matrix: {
+          car: [HERE_CAR],
+          truck: [HERE_TRUCK],
+        },
+        isoline: {
+          car: [HERE_CAR],
           truck: [HERE_TRUCK],
         }
       }
