@@ -161,6 +161,26 @@ services:
       - ./otp/data:/srv/otp/data
     restart: always
 
+  otp-besancon:
+    image: mapotempo/otp-server:1.2.0
+    environment:
+      GRAPH: besancon
+    ports:
+      - "7015:7000"
+    volumes:
+      - ./otp/data:/srv/otp/data
+    restart: always
+
+  otp-la-roche-sur-yon:
+    image: mapotempo/otp-server:1.2.0
+    environment:
+      GRAPH: la-roche-sur-yon
+    ports:
+      - "7016:7000"
+    volumes:
+      - ./otp/data:/srv/otp/data
+    restart: always
+
   osrm-car-overseas:
     build:
       context: osrm/server

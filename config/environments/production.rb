@@ -134,6 +134,8 @@ module RouterWrapper
     brest: {licence: 'LO', attribution: 'Bibus Brest Métropole', area: 'Brest, France', boundary: 'poly/france-brest.kml', crs: 'EPSG:2154'},
     poitiers: {licence: 'ODbL', attribution: 'Grand Poitiers', area: 'Poitiers, France', boundary: 'poly/france-poitiers.kml', crs: 'EPSG:2154'},
     lille: {licence: 'LO', attribution: 'Lille Métropole', area: 'Lille, France', boundary: 'poly/france-lille.kml', crs: 'EPSG:2154'},
+    besancon: {licence: 'LO', attribution: 'Communauté d''Agglomération du Grand Besançon', area: 'Besançon, France', boundary: 'poly/france-besancon.kml', crs: 'EPSG:2154'},
+    'la-roche-sur-yon': {licence: 'ODbL', attribution: 'La Roche-sur-Yon Agglomération', area: 'La Roche-sur-Yon, France', boundary: 'poly/france-la-roche-sur-yon.kml', crs: 'EPSG:2154'},
   }.collect{ |k, v|
     Wrappers::Otp.new(CACHE, v.merge(url: "http://otp-#{k.to_s}:7000", router_id: k.to_s))
   }
