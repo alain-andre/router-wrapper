@@ -201,6 +201,7 @@ module RouterWrapper
         'danem-test-1-ooy4Zoomahzad2ain8jahPaikieraire',
         'ulb-1-johm6ef7shaRaem6ue5aeDah8sise4op', # SELIS
         'keesing-1-Eiph2ohz2uquoojeepoojae7gu0ixae0',
+        'fiftytruck-1-ungeem0iij9Saegh7fuGieb2eiqu5ohf',
       ],
       services: {
         route_default: :car,
