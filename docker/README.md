@@ -34,6 +34,24 @@ Then use the configuration file and edit it to match your needs:
     # Copy production configuration file
     cp ../config/environments/production.rb ./
 
+## OTP
+Create docker directoy to handle data linked to each OTP docker running on the host.
+
+    mkdir -p /srv/docker/osrm/server
+    mkdir -p /srv/docker/otp
+
+### Build OTP graphs
+
+    # cd router-wrapper/docker/otp
+    ./otp-rebuild-all.sh
+
+### Build a single OTP graph
+
+The following script will build `la-roche-sur-yon` graph from `./otp/data/graphs` in `/srv/docker`
+
+    # cd router-wrapper/docker/otp
+    ./otp-rebuild.sh la-roche-sur-yon
+
 Finally run the services:
 
     docker-compose -p router up -d
