@@ -1,6 +1,4 @@
 #!/bin/sh
-cd ./data/graphs/
-for i in *; do
-  echo "./otp-rebuild.sh $i"
-  ../../otp-rebuild.sh $i
+for i in ./data/graphs/*; do
+  ./otp-rebuild.sh `basename $i`
 done

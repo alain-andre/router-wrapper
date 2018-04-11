@@ -2,14 +2,18 @@
 
 all: Graph.obj
 
+/srv/otp/data/osm/europe/france-latest.osm.pbf:
+	mkdir -p `dirname $@`
+	wget http://download.geofabrik.de/europe/france-latest.osm.pbf --no-verbose -O $@
+
 gtfs-ginko.zip:
 	wget "https://api.ginko.voyage/gtfs-ginko.zip" --no-verbose -O $@
 
-besancon_france.osm.pbf:
-	osmosis --read-pbf /srv/osm/europe/france/france-latest.osm.pbf --bounding-box top=47.39 left=5.75 bottom=47.07 right=6.24 --write-pbf $@
+besancon_france.osm.pbf: /srv/otp/data/osm/europe/france-latest.osm.pbf
+	osmosis --read-pbf $< --bounding-box top=47.39 left=5.75 bottom=47.07 right=6.24 --write-pbf $@
 
 Graph.obj: gtfs-ginko.zip besancon_france.osm.pbf
 	java -jar ${OTP} --build .
 
 clean:
-	rm -f *.osm.pbf Graph.obj gtfs-ginko.zip
+	rm -f *.osm.pbf Graph.obj *.zip

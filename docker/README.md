@@ -34,6 +34,10 @@ Then use the configuration file and edit it to match your needs:
     # Copy production configuration file
     cp ../config/environments/production.rb ./
 
+## Requirement
+
+    apt-get install -y jq
+
 ## OTP
 Create docker directoy to handle data linked to each OTP docker running on the host.
 
