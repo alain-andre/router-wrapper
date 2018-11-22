@@ -27,7 +27,7 @@ module Api
   module V01
     class Api < Grape::API
       before do
-        error!('401 Unauthorized', 401) unless ::RouterWrapper::config[:api_keys].include?(params[:api_key])
+        error!('401 Unauthorized', 401) unless ::RouterWrapper.config[:api_keys].include?(params[:api_key])
       end
 
       rescue_from :all, backtrace: ENV['APP_ENV'] != 'production' do |e|
@@ -46,10 +46,12 @@ module Api
         elsif e.is_a?(RouterWrapper::OutOfSupportedAreaOrNotSupportedDimensionError)
           rack_response(format_message(response, nil), 417)
         elsif e.is_a?(RouterWrapper::InvalidArgumentError)
+          Raven.capture_exception(e) if ENV['APP_ENV'] != 'test'
           rack_response(format_message(response, nil), 400)
         elsif e.is_a?(Wrappers::UnreachablePointError)
           rack_response(format_message(response, nil), 204)
         else
+          Raven.capture_exception(e) if ENV['APP_ENV'] != 'test'
           rack_response(format_message(response, e.backtrace), 500)
         end
       end
@@ -62,7 +64,7 @@ module Api
       private
 
       def services
-        ::RouterWrapper::config[:api_keys][params[:api_key]]
+        ::RouterWrapper.config[:api_keys][params[:api_key]]
       end
     end
   end

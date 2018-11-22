@@ -135,4 +135,9 @@ class Api::V01::MatrixTest < Minitest::Test
     get '/0.1/matrix', api_key: 'demo', src: '49.610710,18.237305', dst: '47.010226, 2.900391', mode: 'here', trailers: '10'
     assert_equal 400, last_response.status, 'Bad response: ' + last_response.body
   end
+
+  def test_matrix_with_negative_value
+    get '/0.1/matrix', api_key: 'demo', dimension: 'distance', mode: 'osrm5', src: '50.627963,1.656351,50.627631,1.655672'
+    assert JSON.parse(last_response.body)['matrix_distance'].last[0] > 0
+  end
 end
