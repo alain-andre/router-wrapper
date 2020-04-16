@@ -67,49 +67,44 @@ module RouterWrapper
     product_title: 'Router Wrapper API',
     product_contact_email: 'tech@mapotempo.com',
     product_contact_url: 'https://github.com/Mapotempo/router-wrapper',
-    profiles: [{
-      api_keys: ['light'],
-      services: {
-        route_default: :crow,
-        route: {
-          crow: [CROW],
-        },
-        matrix: {
-          crow: [CROW],
-        },
-        isoline: {
-          crow: [CROW],
+    profiles: {
+      light: {
+        services: {
+          route_default: :crow,
+          route: {
+            crow: [CROW],
+          },
+          matrix: {
+            crow: [CROW],
+          },
+          isoline: {
+            crow: [CROW],
+          }
+        }
+      },
+      demo: {
+        services: {
+          route_default: :crow,
+          route: {
+            crow: [CROW],
+            osrm5: [OSRM5],
+            otp: [OTP_BORDEAUX],
+            here: [HERE_TRUCK],
+          },
+          matrix: {
+            crow: [CROW],
+            osrm5: [OSRM5],
+            otp: [OTP_BORDEAUX],
+            here: [HERE_TRUCK],
+          },
+          isoline: {
+            crow: [CROW],
+            osrm5: [OSRM5],
+            otp: [OTP_BORDEAUX],
+            here: [HERE_TRUCK],
+          }
         }
       }
-    }, {
-      api_keys: ['demo'],
-      services: {
-        route_default: :crow,
-        route: {
-          crow: [CROW],
-          osrm5: [OSRM5],
-          otp: [OTP_BORDEAUX],
-          here: [HERE_TRUCK],
-        },
-        matrix: {
-          crow: [CROW],
-          osrm5: [OSRM5],
-          otp: [OTP_BORDEAUX],
-          here: [HERE_TRUCK],
-        },
-        isoline: {
-          crow: [CROW],
-          osrm5: [OSRM5],
-          otp: [OTP_BORDEAUX],
-          here: [HERE_TRUCK],
-        }
-      }
-    }]
-  }
-
-  @@c[:api_keys] = Hash[@@c[:profiles].collect{ |profile|
-    profile[:api_keys].collect{ |api_key|
-      [api_key, profile[:services]]
     }
-  }.flatten(1)]
+  }
 end

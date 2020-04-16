@@ -1,4 +1,4 @@
-# Copyright © Mapotempo, 2016
+# Copyright © Mapotempo, 2020
 #
 # This file is part of Mapotempo.
 #
@@ -15,20 +15,9 @@
 # along with Mapotempo. If not, see:
 # <http://www.gnu.org/licenses/agpl.html>
 #
-require 'grape'
-require 'grape-swagger'
-
-module Api
-  module V01
-    class APIBase < Grape::API
-
-      private
-
-      def self.services(api_key)
-        raise 'Profile missing in configuration' unless ::RouterWrapper.config[:profiles].key? ::RouterWrapper.access[api_key][:profile]
-
-        ::RouterWrapper.config[:profiles][::RouterWrapper.access[api_key][:profile]]
-      end
-    end
-  end
+module RouterWrapper
+  @access_by_api_key = {
+    'demo' => { profile: :demo },
+    'light' => { profile: :light },
+  }
 end

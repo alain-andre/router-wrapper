@@ -162,6 +162,11 @@ module RouterWrapper
   class InvalidArgumentError < RouterWrapperError
   end
 
+  def self.access(force_load = false)
+    load './config/access.rb' if force_load
+    @access_by_api_key
+  end
+
   private
 
   def self.speed_multiplier_area(params)
