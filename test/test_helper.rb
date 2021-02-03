@@ -18,6 +18,9 @@
 require 'simplecov'
 SimpleCov.start
 
+require 'minitest'
+require 'fakeredis/minitest'
+
 ENV['APP_ENV'] ||= 'test'
 require File.expand_path('../../config/environments/' + ENV['APP_ENV'], __FILE__)
 Dir[File.dirname(__FILE__) + '/../config/initializers/*.rb'].each {|file| require file }
@@ -35,3 +38,9 @@ require 'grape-entity'
 
 require 'minitest/autorun'
 require 'rack/test'
+
+module FakeRedis
+  def teardown
+    RouterWrapper.config[:redis_count].flushall
+  end
+end
