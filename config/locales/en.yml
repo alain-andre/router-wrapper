@@ -25,4 +25,8 @@ en:
     otp:
       name: OpenTripPlanner
     here:
-      name: HERE
+      name: HERE truck
+    car:
+      name: HERE car
+    truck:
+      name: HERE truck

@@ -104,6 +104,23 @@ module RouterWrapper
           otp: [OTP_BORDEAUX],
         }
       }
+    }, {
+      api_keys: ['here'],
+      services: {
+        route_default: :car,
+        route: {
+          car: [HERE_CAR],
+          truck: [HERE_TRUCK],
+        },
+        matrix: {
+          car: [HERE_CAR],
+          truck: [HERE_TRUCK],
+        },
+        isoline: {
+          car: [HERE_CAR],
+          truck: [HERE_TRUCK],
+        }
+      }
     }]
   }
 

@@ -14,6 +14,7 @@
       <input id="track" type="checkbox" checked="checked"><label for="track">Use tracks?</label>
       <input id="motorway" type="checkbox" checked="checked"><label for="motorway">Use motorways?</label>
       <input id="toll" type="checkbox" checked="checked"><label for="toll">Pass by tolls?</label>
+      <label>Using api key (<span id="api-key-label"><%= params['api_key'] || 'demo' %></span>)</label>
     </div>
     <div style="clear:both;"></div>
     <div class="geocoder-wrapper">
@@ -34,7 +35,7 @@
     <script type="text/javascript" src="js/leaflet-routing-machine.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
     <script type="text/javascript" src="js/lrm-mapotempo.js"></script>
-    <script type="text/javascript" src="https://geocode.mapotempo.com/0.1/map.js?api_key=demo"></script>
+    <script type="text/javascript" src="https://geocode.beta.mapotempo.com/0.1/map.js?api_key=<%= params['api_key'] || 'demo' %>"></script>
     <script type="text/javascript" src="js/route.js"></script>
     <script type="text/javascript" src="js/geocode.js"></script>
   </body>
